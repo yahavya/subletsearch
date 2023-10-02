@@ -2,6 +2,7 @@ import { FC } from "react"
 import { ListingCardData } from "../types"
 import { styled, Card } from "@mui/material"
 import { Carousel } from "react-responsive-carousel"
+import "react-responsive-carousel/lib/styles/carousel.min.css" // requires a loader
 
 const ListingCard: FC<ListingCardData> = data => {
   const StyledCard = styled(Card)({
@@ -11,7 +12,6 @@ const ListingCard: FC<ListingCardData> = data => {
   return (
     <StyledCard>
       <Carousel
-        width={100}
         infiniteLoop
         centerMode={false}
         dynamicHeight={false}
@@ -20,12 +20,15 @@ const ListingCard: FC<ListingCardData> = data => {
         swipeable={false}
         showIndicators
         showArrows
+        showThumbs={false}
+        showStatus={false}
         axis={"horizontal"}
       >
         {data.imageUrls.map(url => (
           <img key={url} src={url} alt={"Photo of apartment"} />
         ))}
       </Carousel>
+      <div>{data.price}</div>
     </StyledCard>
   )
 }
