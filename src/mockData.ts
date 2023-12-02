@@ -16,7 +16,8 @@ const mockData: ListingCardData[] = [
     roomCount: 2,
     price: 6250,
     floorNumber: 0,
-    streetOrNeighborhood: "איזור גורדון בן יהודה",
+    street: "איזור גורדון בן יהודה",
+    neighborhood: "סתם שכונה",
   },
   {
     id: 3,
@@ -31,7 +32,8 @@ const mockData: ListingCardData[] = [
     area: 75,
     price: 7500,
     floorNumber: 1,
-    streetOrNeighborhood: "רחוב תל חי",
+    street: "רחוב תל חי",
+    neighborhood: "סתם שכונה",
   },
 ]
 
