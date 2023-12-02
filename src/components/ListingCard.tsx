@@ -1,39 +1,40 @@
 import { FC } from "react"
 import { ListingCardData } from "../types"
 import { styled, Card, Typography } from "@mui/material"
-import { Carousel } from "react-responsive-carousel"
-import "react-responsive-carousel/lib/styles/carousel.min.css" // requires a loader
+import "react-responsive-carousel/lib/styles/carousel.min.css"
+import ImageCarousel from "./ImageCarousel"
+import GeneralInfoRow from "./GeneralInfoRow"
+import LocationRow from "./LocationRow"
 
 const StyledCard = styled(Card)({
-  width: 400,
+  width: 500,
 })
 
-const StyledImage = styled("img")({
-  height: "100%",
-  objectFit: "cover",
-})
-
-const ListingCard: FC<ListingCardData> = data => {
+const ListingCard: FC<ListingCardData> = ({
+  imageUrls,
+  price,
+  postDate,
+  startDate,
+  endDate,
+  neighborhood,
+  street,
+  roomCount,
+  floorNumber,
+  area,
+}) => {
   return (
     <StyledCard>
-      <Carousel
-        infiniteLoop
-        centerMode={false}
-        dynamicHeight={false}
-        transitionTime={1000}
-        selectedItem={0}
-        swipeable={false}
-        showIndicators
-        showArrows
-        showThumbs={false}
-        showStatus={false}
-        axis={"horizontal"}
-      >
-        {data.imageUrls.map(url => (
-          <StyledImage key={url} src={url} alt={"Apartment"} />
-        ))}
-      </Carousel>
-      <Typography variant="h3">{`₪${data.price}`}</Typography>
+      <ImageCarousel imageUrls={imageUrls} />
+      <Typography variant="h3">{`₪${price}`}</Typography>
+      <LocationRow neighborhood={neighborhood} street={street} />
+      <GeneralInfoRow
+        postDate={postDate}
+        startDate={startDate}
+        endDate={endDate}
+        roomCount={roomCount}
+        floorNumber={floorNumber}
+        area={area}
+      />
     </StyledCard>
   )
 }
