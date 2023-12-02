@@ -13,7 +13,8 @@ export type ListingCardData = {
   area?: number
   price?: number
   floorNumber?: number
-  streetOrNeighborhood?: string
+  street?: string
+  neighborhood?: string
 }
 
 export type ListingFullData = ListingCardData & {
