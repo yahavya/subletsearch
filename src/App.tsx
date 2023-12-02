@@ -3,7 +3,7 @@ import mockData from "./mockData"
 
 function App() {
   return (
-    <div style={{ display: "flex", gap: 16 }}>
+    <div style={{ display: "flex", gap: 16, marginTop: 10 }}>
       <ListingCard {...mockData[1]} />
       <ListingCard {...mockData[0]} />
     </div>
