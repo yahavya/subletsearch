@@ -5,17 +5,19 @@ When you see "END", that means this is the end of the current listing and you sh
 ## ENTER DATA HERE ##
 
 type ListingCardData = {
-  id: number;
-  city: "Tel Aviv";
-  postDate: string;
-  startDate: string;
-  endDate?: string;
-  roomCount: number;
-  area?: number;
-  price?: number;
-  floorNumber?: number;
-  street?: string;
-  neighborhood?: string;
+  id: number
+  city: "Tel Aviv"
+  type: "Sublet"
+  postDate: string
+  startDate: string
+  endDate?: string
+  imageUrls: FacebookImageUrl[]
+  roomCount: number
+  area?: number
+  price?: number
+  floorNumber?: number
+  street?: string
+  neighborhood?: string
 };
 
 Do not try to translate the text. I don't care about the content. Just give me the final object as output and nothing else.
