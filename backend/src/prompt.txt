@@ -14,7 +14,8 @@ type ListingCardData = {
   area?: number;
   price?: number;
   floorNumber?: number;
-  streetOrNeighborhood?: string;
+  street?: string;
+  neighborhood?: string;
 };
 
 Do not try to translate the text. I don't care about the content. Just give me the final object as output and nothing else.
