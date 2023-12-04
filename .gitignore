@@ -24,3 +24,6 @@ yarn-error.log*
 
 # text
 /sublet_groups.txt
+
+# dotenv
+.env
