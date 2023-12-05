@@ -1,5 +1,5 @@
 type FacebookUrl = `https://www.facebook.com/${string}`
-type FacebookImageUrl = `https://scontent.ftlv5-1.fna.fbcdn.net/v/${string}`
+type FacebookImageUrl = `https://scontent.ftlv${number}-1.fna.fbcdn.net/v/${string}`
 
 export type ListingCardData = {
   id: number
