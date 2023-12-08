@@ -1,17 +1,18 @@
 import { ThemeProvider } from "@mui/material"
-import ListingCard from "./components/ListingCard"
-import mockData from "./mockData"
 import theme from "./styles/theme"
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
+import LandingPage from "./pages/LandingPage"
+import FeedPage from "./pages/FeedPage"
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <div style={{ display: "flex", gap: 16, marginTop: 10 }}>
-        <ListingCard {...mockData[1]} />
-        <ListingCard {...mockData[0]} />
-        <ListingCard {...mockData[2]} />
-        <ListingCard {...mockData[3]} />
-      </div>
+      <Router>
+        <Routes>
+          <Route path="/" Component={LandingPage} />
+          <Route path="/browse" Component={FeedPage} />
+        </Routes>
+      </Router>
     </ThemeProvider>
   )
 }
