@@ -1,4 +1,4 @@
-const { config } = require('dotenv')
+/*const { config } = require('dotenv')
 const fs = require('fs')
 const { OpenAI } = require('openai')
 const puppeteer = require('puppeteer');
@@ -74,4 +74,4 @@ module.exports = {
   results
 };
 
-
+*/
