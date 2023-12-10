@@ -1,14 +1,14 @@
 Create a JSON object of type Listing (provided below) based on the following text for each of the following items. 
 
 If the words "מחפש" or "מחפשת" are in the post, SKIP THE POST.
-If you can't find a certain field, don't return it. Leave imageUrls empty.
+If you can't find a certain field, don't return it. Leave imageUrls empty. startDate and endDate must be in the format of a date, NOT mins.
 
 When you see "END", that means this is the end of the current listing and you should reset the fields for the next listing.
 
 ## ENTER DATA HERE ##
 
 type ListingCardData = {
-  id: number
+  post_id: number
   startDate: string
   endDate?: string
   imageUrls: FacebookImageUrl[]

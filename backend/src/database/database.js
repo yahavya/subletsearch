@@ -33,4 +33,4 @@ export async function createApartment(startDate, floorNumber, price, street, nei
         console.log("apartment added")
     }
  }
-startFunction();
+    startFunction();

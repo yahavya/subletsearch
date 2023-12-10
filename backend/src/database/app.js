@@ -1,12 +1,12 @@
 import express from 'express';
-import { getApartments, getApartments } from './database.js';
+import { getApartments } from './database.js';
 
 const app = express();
 
 app.get('/apartments', async (req, res) => {
     const apartments = await getApartments();
-    res.send(apartments);
-    
+    res.json(apartments);
+        
 })
 
 app.use((err, req, res, next) => {
