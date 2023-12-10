@@ -1,13 +1,12 @@
-import { config } from 'dotenv';
+import dotenv from 'dotenv';
 import fs from 'fs/promises';
 import { OpenAI } from 'openai';
 import puppeteer from 'puppeteer';
+dotenv.config()
 
 const filePath = '/Users/ron/new-sublet-search/dirot/backend/src/prompt.txt';
 
-config();
-
-async function start() {
+export default async function start() {
   try {
     const promptText = await fs.readFile(filePath, 'utf-8');
     const list = await scraper();
@@ -29,7 +28,7 @@ async function scraper() {
     });
 
     const page = await browser.newPage();
-    await page.goto('https://m.facebook.com/groups/327655587294381/');
+    await page.goto('https://m.facebook.com/groups/447412252098033/');
 
     const postElements = await page.$$('#m_group_stories_container > section [class="_55wo _5rgr _5gh8 async_like"]');
     await page.waitForSelector('#m_group_stories_container > section [class="_55wo _5rgr _5gh8 async_like"]', { timeout: 3000 });
@@ -47,7 +46,7 @@ async function scraper() {
 }
 
 const openai = new OpenAI({
-  apiKey: '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' //process.env.OPENAI_API_KEY,
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
 async function parser(prompt) {
@@ -58,10 +57,9 @@ async function parser(prompt) {
     temperature: 0,
   });
 
-  console.log(completion.choices[0].text);
+  //console.log(completion.choices[0].text);
+  //console.log(completion)
   return completion;
 }
 
-const results = start();
-
-export { results };
+export {};
