@@ -28,11 +28,11 @@ async function scraper() {
     });
 
     const page = await browser.newPage();
-    await page.goto('https://m.facebook.com/groups/447412252098033/');
+    await page.goto('https://m.facebook.com/groups/327655587294381/');
 
     const postElements = await page.$$('#m_group_stories_container > section [class="_55wo _5rgr _5gh8 async_like"]');
     await page.waitForSelector('#m_group_stories_container > section [class="_55wo _5rgr _5gh8 async_like"]', { timeout: 3000 });
-
+    
     for (const postElement of postElements) {
       const postText = await postElement.$eval('*', (el) => el.textContent);
       list.push(postText + 'END');

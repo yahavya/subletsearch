@@ -15,11 +15,11 @@ export async function getApartments() {
     return rows;
 }
 
-export async function createApartment(city, type, startDate, floorNumber, price, street, neighborhood){  
+export async function createApartment(startDate, floorNumber, price, street, neighborhood){  
     const [result] = await pool.query(`
-    INSERT INTO apartments (city, type, startDate, floorNumber, price, street, neighborhood)
-    VALUES (?, ?, ?, ?, ?, ?, ?)
-    `, [city, type, startDate, floorNumber, price, street, neighborhood])
+    INSERT INTO apartments (startDate, floorNumber, price, street, neighborhood)
+    VALUES (?, ?, ?, ?, ?)
+    `, [startDate, floorNumber, price, street, neighborhood])
     return result.insertId
 }
 
@@ -33,7 +33,7 @@ export async function createApartment(city, type, startDate, floorNumber, price,
     const dataText = data.choices[0].text
     console.log("this is the data coming from createApartment", dataText);
     const listing = JSON.parse(dataText)
-    createApartment(listing.city, listing.type, listing.startDate, listing.floorNumber, listing.price, listing.street, listing.neighborhood)
+    createApartment(listing.startDate, listing.floorNumber, listing.price, listing.street, listing.neighborhood)
  }
 
 startFunction();

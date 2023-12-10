@@ -1,4 +1,7 @@
-Create a JSON object of type Listing (provided below) based on the following text for each of the following items, only if ״מחפש״ or ״מחפשת״  doesn't appear in the post. For the post date, use today's date. 
+Create a JSON object of type Listing (provided below) based on the following text for each of the following items. 
+
+If the words "מחפש" or "מחפשת" are in the post, SKIP THE POST.
+If you can't find a certain field, don't return it. Leave imageUrls empty.
 
 When you see "END", that means this is the end of the current listing and you should reset the fields for the next listing.
 
@@ -6,9 +9,7 @@ When you see "END", that means this is the end of the current listing and you sh
 
 type ListingCardData = {
   id: number
-  city: "Tel Aviv"
-  type: "Sublet"
-  postDate: string
+  postDate: string (on what date was post created?)
   startDate: string
   endDate?: string
   imageUrls: FacebookImageUrl[]
