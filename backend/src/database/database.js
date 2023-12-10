@@ -23,17 +23,14 @@ export async function createApartment(startDate, floorNumber, price, street, nei
     return result.insertId
 }
 
-/*export const apartments = await getApartments();
-    const result = await createApartment('test', 'test', 'test');
-    console.log(apartments);
-    console.log(result); */
-
  async function startFunction(){
     const data = await start();
     const dataText = data.choices[0].text
     console.log("this is the data coming from createApartment", dataText);
     const listing = JSON.parse(dataText)
-    createApartment(listing.startDate, listing.floorNumber, listing.price, listing.street, listing.neighborhood)
+    for (const item of listing) {
+        createApartment(item.startDate, item.floorNumber, item.price, item.street, item.neighborhood)
+        console.log("apartment added")
+    }
  }
-
 startFunction();

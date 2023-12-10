@@ -9,7 +9,6 @@ When you see "END", that means this is the end of the current listing and you sh
 
 type ListingCardData = {
   id: number
-  postDate: string (on what date was post created?)
   startDate: string
   endDate?: string
   imageUrls: FacebookImageUrl[]
