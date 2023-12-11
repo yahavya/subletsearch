@@ -32,16 +32,17 @@ async function scraper() {
           const questionMarkIndex = postUrl.indexOf('?')
           const shortenedUrl = postUrl.substring(0, questionMarkIndex);
           const MobileToWebUrl = shortenedUrl.replace('https://m.facebook.com/', 'https://www.facebook.com/')
-          list.push(postText + 'END');
-          url_list.push(MobileToWebUrl);
-          console.log(url_list)
-          console.log(postText)
+          list.push({
+            text: postText,
+            url: MobileToWebUrl
+          });
+          console.log(list)
       }
       catch (error){
         console.log("this post doesn't have a link: ")
       }
     }
-    console.log(url_list.length)
+    console.log(list.length)
 
 
     await browser.close();
