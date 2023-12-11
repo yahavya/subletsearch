@@ -5,11 +5,9 @@ const list = []
 const url_list = []
 
 /* different postUrl class names: 
-
           _5rgt _5nk5 _5wnf _5msi
           _5rgt _5nk5 _5msi
   
-          
 */
 async function scraper() {
   try {
