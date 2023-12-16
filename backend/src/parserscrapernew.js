@@ -9,10 +9,11 @@ const filePath = '/Users/ron/new-sublet-search/dirot/backend/src/prompt.txt';
 export default async function getNewListings() {
   try {
     const promptText = await fs.readFile(filePath, 'utf-8');
-    const list = await scraper();
-    const newPrompt = promptText.replace('## ENTER DATA HERE ##', list.slice(0, 5));
+    const list = await scraper();    
+    const text_list = list.map(item => item.text);
+    const newPrompt = promptText.replace('## ENTER DATA HERE ##', text_list.slice(0, 5));
     const result = await parser(newPrompt);
-    console.log(result);
+
     return result;
   } catch (error) {
     console.error('An error occurred:', error);
@@ -29,7 +30,7 @@ async function scraper() {
     });
 
     const page = await browser.newPage();
-    await page.goto('https://m.facebook.com/groups/447412252098033/');
+    await page.goto('https://m.facebook.com/groups/327655587294381');
 
     const postElements = await page.$$('#m_group_stories_container > section [class="_55wo _5rgr _5gh8 async_like"]');
     await page.waitForSelector('#m_group_stories_container > section [class="_55wo _5rgr _5gh8 async_like"]', { timeout: 3000 });
@@ -74,7 +75,7 @@ async function test() {
     }
   }
 
-getNewListings();
+test();
 
 // ###### PARSER ######
 const openai = new OpenAI({
