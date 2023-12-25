@@ -72,15 +72,15 @@ app.post("/api/create", (req, res) => {
 
                     await db.collection('listings').doc('/' + postID + '/')
                     .create({
-                        startDate: post.startDate,
-                        endDate: post.endDate,
-                        roomCount: post.roomCount,
-                        area: post.area,
-                        price: post.price,
-                        floorNumber: post.floorNumber,    
-                        postUrl: post.url,
-                        fullText: post.fullText,
-                        imageUrl: post.images,
+                        startDate: post.startDate || null,
+                        endDate: post.endDate || null,
+                        roomCount: post.roomCount || null,
+                        area: post.area || null,
+                        price: post.price || null,
+                        floorNumber: post.floorNumber || null,    
+                        postUrl: post.url || null,
+                        fullText: post.fullText || null,
+                        imageUrl: post.images || null,
                         entry_date: new Date()
                     })
             }
