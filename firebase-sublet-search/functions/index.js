@@ -48,7 +48,7 @@ app.get("/api/listings", async (req, res) => {
     console.error('Error fetching entries from Firestore:', error);
     res.status(500).json({ success: false, error: 'Internal Server Error' });
   }
-    //res.status(200).send("Returned listings");
+
 });
 
 //Post
