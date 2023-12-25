@@ -1,0 +1,22 @@
+Create a JSON object of type Listing (provided below) based on the following text for each of the following items. 
+
+ANY FIELD YOU CAN'T FIND HAS TO BE RETURNED AS null. startDate and endDate must be in the format of a date, NOT mins.
+
+Only provide a RFC8259 compliant JSON response following this format without deviation.
+
+startDate means the date you can enter the apartment from.
+
+## ENTER DATA HERE ##
+
+[{
+  "startDate": "sublet start date",
+  "endDate": "sublet end date",
+  "roomCount": number of rooms in the apartment (should be a number),
+  "area": apartment size in square meters (should be a number),
+  "price": rental cost (should be a number),
+  "floorNumber": what floor is the apartment on (should be a number),
+  "street": "what street is the apartment on",
+  "neighborhood": "what neighborhood is the apartment in, for example: 'יפו, פלורנטין, הצפון הישן, דיזנגוף'"
+}]
+
+Do not try to translate the text, leave street name in hebrew. I don't care about the content. Just give me the final object as output and nothing else.
