@@ -9,8 +9,8 @@ startDate means the date you can enter the apartment from.
 ## ENTER DATA HERE ##
 
 [{
-  "startDate": "sublet start date",
-  "endDate": "sublet end date",
+  "startDate": "sublet start date DD/MM/yyyy format",
+  "endDate": "sublet end date, DD/MM/YYYY format",
   "roomCount": number of rooms in the apartment (should be a number),
   "area": apartment size in square meters (should be a number),
   "price": rental cost (should be a number),
