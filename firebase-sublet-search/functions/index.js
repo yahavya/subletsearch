@@ -24,9 +24,31 @@ const db = admin.firestore();
 
 app.use(cors( {origin: true}));
 
+app.use(express.json());
+
 //Routes
-app.get("/hello-world", (req, res) => {
-    res.status(200).send("Hello from Firebase!");
+//Get
+
+app.get("/api/listings", async (req, res) => {
+    try {
+    const page = parseInt(req.query.page) || 1;
+    const listingsPerPage = 10;
+    // Replace 'your-collection' with the name of your Firestore collection
+    const collectionRef = admin.firestore().collection('listings');
+
+    // Get all documents in the collection
+    const snapshot = await collectionRef.limit(listingsPerPage).offset((page - 1) * listingsPerPage).get();
+
+    // Extract data from documents
+    const listings = snapshot.docs.map(doc => doc.data());
+
+    res.json({ success: true, listings, page, listingsPerPage });
+
+  } catch (error) {
+    console.error('Error fetching entries from Firestore:', error);
+    res.status(500).json({ success: false, error: 'Internal Server Error' });
+  }
+    //res.status(200).send("Returned listings");
 });
 
 //Post
