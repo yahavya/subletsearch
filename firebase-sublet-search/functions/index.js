@@ -55,7 +55,7 @@ app.get("/api/listings", async (req, res) => {
 app.post("/api/create", (req, res) => {
     
     (async () => {
-        const list = await scraper('https://m.facebook.com/groups/327655587294381/');
+        const list = await scraper('https://m.facebook.com/groups/447412252098033/');
         console.log("list coming from create function " + list);
         let documentRef = db.collection("listings")
 
@@ -78,9 +78,9 @@ app.post("/api/create", (req, res) => {
                         area: post.area,
                         price: post.price,
                         floorNumber: post.floorNumber,    
-                        post_url: post.url,
+                        postUrl: post.url,
                         fullText: post.fullText,
-                        image_url: post.images,
+                        imageUrl: post.images,
                         entry_date: new Date()
                     })
             }
