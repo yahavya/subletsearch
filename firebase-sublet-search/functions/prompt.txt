@@ -9,8 +9,8 @@ startDate means the date you can enter the apartment from.
 ## ENTER DATA HERE ##
 
 [{
-  "startDate": "sublet start date DD/MM/yyyy format",
-  "endDate": "sublet end date, DD/MM/YYYY format",
+  "startDate": "sublet start date DD/MM format",
+  "endDate": "sublet end date, DD/MM format",
   "roomCount": number of rooms in the apartment (should be a number),
   "area": apartment size in square meters (should be a number),
   "price": rental cost (should be a number),
@@ -20,3 +20,5 @@ startDate means the date you can enter the apartment from.
 }]
 
 Do not try to translate the text, leave street name in hebrew. I don't care about the content. Just give me the final object as output and nothing else.
+
+DON'T MAKE STUFF UP. IF YOU CAN'T FIND A CERTAIN FIELD, RETURN IT AS NULL.

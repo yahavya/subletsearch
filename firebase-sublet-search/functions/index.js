@@ -55,7 +55,7 @@ app.get("/api/listings", async (req, res) => {
 app.post("/api/create", (req, res) => {
     
     (async () => {
-        const list = await scraper('https://m.facebook.com/groups/447412252098033/');
+        const list = await scraper('https://m.facebook.com/groups/ThesubletTelaviv/');
         console.log("list coming from create function " + list);
         let documentRef = db.collection("listings")
 
@@ -72,6 +72,7 @@ app.post("/api/create", (req, res) => {
 
                     await db.collection('listings').doc('/' + postID + '/')
                     .create({
+                        id: postID,
                         startDate: post.startDate || null,
                         endDate: post.endDate || null,
                         roomCount: post.roomCount || null,
@@ -81,7 +82,10 @@ app.post("/api/create", (req, res) => {
                         postUrl: post.url || null,
                         fullText: post.fullText || null,
                         imageUrl: post.images || null,
-                        entry_date: new Date()
+                        post_date: new Date().toLocaleDateString(),
+                        neighborhood: post.neighborhood || null,
+                        street: post.street || null,
+
                     })
             }
     }
