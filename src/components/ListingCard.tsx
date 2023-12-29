@@ -24,8 +24,8 @@ const ListingCard: FC<ListingCardData> = ({
 }) => {
   return (
     <StyledCard>
-      <ImageCarousel imageUrls={imageUrls} />
       <Typography variant="h3">{`₪${price}`}</Typography>
+      <p>IMAGE CAROUSEL</p>
       <LocationRow neighborhood={neighborhood} street={street} />
       <GeneralInfoRow
         postDate={postDate}
@@ -40,3 +40,6 @@ const ListingCard: FC<ListingCardData> = ({
 }
 
 export default ListingCard
+
+
+//  <ImageCarousel imageUrls={imageUrls} /> - CURRENTLY NOT RENDERING IMAGES, NEED TO FIX THIS

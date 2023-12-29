@@ -1,10 +1,12 @@
 type FacebookUrl = `https://www.facebook.com/${string}`
-type FacebookImageUrl = `https://scontent.ftlv${number}-1.fna.fbcdn.net/v/${string}`
+//type FacebookImageUrl = `https://scontent.ftlv${number}-1.fna.fbcdn.net/v/${string}`
+
+type FacebookImageUrl = string
 
 export type ListingCardData = {
   id: number
   city: "Tel Aviv"
-  type: "Sublet"
+  //type: "Sublet"
   postDate: string
   startDate: string
   endDate?: string

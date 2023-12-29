@@ -1,7 +1,8 @@
 import { ListingCardData } from "./types"
 
 const mockData: ListingCardData[] = [
-  {
+ 
+ /* {
     id: 1,
     type: "Sublet",
     imageUrls: [
@@ -67,7 +68,7 @@ const mockData: ListingCardData[] = [
     street: "רחוב אבא באבא",
     neighborhood: "אבא הלל",
   }
-  
+  */
     
 ]
 
