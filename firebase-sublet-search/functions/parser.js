@@ -12,7 +12,7 @@ async function parser(prompt) {
   const completion = await openai.completions.create({
     model: 'gpt-3.5-turbo-instruct',
     prompt: prompt,
-    max_tokens: 512,
+    max_tokens: 600,
     temperature: 0,
   });
 
