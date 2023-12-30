@@ -4,21 +4,21 @@ ANY FIELD YOU CAN'T FIND HAS TO BE RETURNED AS null. startDate and endDate must 
 
 Only provide a RFC8259 compliant JSON response following this format without deviation.
 
-startDate means the date you can enter the apartment from.
-
 ## ENTER DATA HERE ##
 
+״כניסה״ usually means the startDate.
+
 [{
-  "startDate": "sublet start date DD/MM format",
-  "endDate": "sublet end date, DD/MM format",
+  "startDate": "sublet start date DD/MM format, return 'היום' if not found",
+  "endDate": "sublet end date, DD/MM format, return null if not found",
   "roomCount": number of rooms in the apartment (should be a number),
   "area": apartment size in square meters (should be a number),
-  "price": rental cost (should be a number),
+  "price": rental cost (should be a number), if not found, return 1
   "floorNumber": what floor is the apartment on (should be a number),
-  "street": "what street is the apartment on, must be in hebrew",
-  "neighborhood": "what neighborhood is the apartment in, must be in hebrew, for example: 'יפו, פלורנטין, הצפון הישן, דיזנגוף'"
+  "street": "what street is the apartment on, must be translated to hebrew, maximum length of 3 words",
+  "neighborhood": "what neighborhood is the apartment in, must be translated to hebrew, for example: 'יפו, פלורנטין, הצפון הישן, דיזנגוף', maximum length of 3 words"
 }]
 
-Do not try to translate the text, leave street name in hebrew. I don't care about the content. Just give me the final object as output and nothing else.
+Do not try to translate the text to English. If text is in English, translate to Hebrew. I don't care about the content. Just give me the final object as output and nothing else.
 
 DON'T MAKE STUFF UP. IF YOU CAN'T FIND A CERTAIN FIELD, RETURN IT AS null.

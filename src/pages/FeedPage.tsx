@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react"
 
 interface Listing {
   id: number;
+  postUrl: string;
   imageUrl: string[];
   price: number;
   entry_date: string
@@ -40,6 +41,7 @@ const FeedPage = () => {
       {data ? (
         data.listings.map((listing, index) => (
           <ListingCard
+            postUrl = {listing.postUrl}
             id = {listing.id}
             key={index}
             imageUrls={listing.imageUrl}

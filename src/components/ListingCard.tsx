@@ -6,11 +6,16 @@ import ImageCarousel from "./ImageCarousel"
 import GeneralInfoRow from "./GeneralInfoRow"
 import LocationRow from "./LocationRow"
 
+
 const StyledCard = styled(Card)({
   width: 500,
+  display: "block"
 })
 
+
+
 const ListingCard: FC<ListingCardData> = ({
+  postUrl,
   imageUrls,
   price,
   postDate,
@@ -22,8 +27,12 @@ const ListingCard: FC<ListingCardData> = ({
   floorNumber,
   area,
 }) => {
+  const handleClick = () => {
+    // Handle click logic, e.g., navigate to the link
+    window.open(postUrl, '_blank', 'noopener noreferrer');
+  };
   return (
-    <StyledCard>
+    <StyledCard onClick={handleClick}>
       <Typography variant="h3">{`₪${price}`}</Typography>
       <ImageCarousel imageUrls={imageUrls} />
       <LocationRow neighborhood={neighborhood} street={street} />
@@ -42,4 +51,3 @@ const ListingCard: FC<ListingCardData> = ({
 export default ListingCard
 
 
-//  <ImageCarousel imageUrls={imageUrls} /> - CURRENTLY NOT RENDERING IMAGES, NEED TO FIX THIS

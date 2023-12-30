@@ -6,6 +6,7 @@ type FacebookImageUrl = string
 export type ListingCardData = {
   id: number
   city: "Tel Aviv"
+  postUrl: string
   //type: "Sublet"
   postDate: string
   startDate: string
