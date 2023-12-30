@@ -25,7 +25,7 @@ const ListingCard: FC<ListingCardData> = ({
   return (
     <StyledCard>
       <Typography variant="h3">{`₪${price}`}</Typography>
-      <p>IMAGE CAROUSEL</p>
+      <ImageCarousel imageUrls={imageUrls} />
       <LocationRow neighborhood={neighborhood} street={street} />
       <GeneralInfoRow
         postDate={postDate}

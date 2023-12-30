@@ -15,10 +15,10 @@ startDate means the date you can enter the apartment from.
   "area": apartment size in square meters (should be a number),
   "price": rental cost (should be a number),
   "floorNumber": what floor is the apartment on (should be a number),
-  "street": "what street is the apartment on",
-  "neighborhood": "what neighborhood is the apartment in, for example: 'יפו, פלורנטין, הצפון הישן, דיזנגוף'"
+  "street": "what street is the apartment on, must be in hebrew",
+  "neighborhood": "what neighborhood is the apartment in, must be in hebrew, for example: 'יפו, פלורנטין, הצפון הישן, דיזנגוף'"
 }]
 
 Do not try to translate the text, leave street name in hebrew. I don't care about the content. Just give me the final object as output and nothing else.
 
-DON'T MAKE STUFF UP. IF YOU CAN'T FIND A CERTAIN FIELD, RETURN IT AS NULL.
+DON'T MAKE STUFF UP. IF YOU CAN'T FIND A CERTAIN FIELD, RETURN IT AS null.

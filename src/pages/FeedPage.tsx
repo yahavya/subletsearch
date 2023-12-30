@@ -36,7 +36,7 @@ const FeedPage = () => {
   }, []);
 
   return (
-    <div>
+    <div style={{ display: "flex", gap: 16, marginTop: 10 }}>
       {data ? (
         data.listings.map((listing, index) => (
           <ListingCard
