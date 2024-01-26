@@ -23,10 +23,12 @@ const PriceTypography = styled(Typography)({
   marginBottom: "8px",
 });
 
-const NeighborhoodTypography = styled(Typography)({
-
-
+const ImageContainer = styled(Box)({
+  width: "100%",
+  height: "200px",
+  overflow: "hidden",
 });
+
 
 const ListingCard: FC<ListingCardData> = ({
   postUrl,
@@ -49,8 +51,9 @@ const ListingCard: FC<ListingCardData> = ({
   return (
     <StyledCard onClick={handleClick}>
       <PriceTypography>{`₪${price}`}</PriceTypography>
-      <ImageCarousel imageUrls={imageUrls} />
-      <Box p={2}>
+      <ImageContainer>
+        <ImageCarousel imageUrls={imageUrls} />
+      </ImageContainer>      <Box p={2}>
         <LocationRow neighborhood={neighborhood} street={street} />
         <GeneralInfoRow
           postDate={postDate}

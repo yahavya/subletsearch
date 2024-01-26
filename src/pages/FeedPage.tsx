@@ -6,7 +6,7 @@ interface Listing {
   id: number;
   postUrl: string;
   imageUrl: string[];
-  price: number;
+  price: number | string;
   entry_date: string
   startDate: string;
   endDate: string;
@@ -44,7 +44,7 @@ const FeedPage = () => {
               postUrl={listing.postUrl}
               id={listing.id}
               imageUrls={listing.imageUrl}
-              price={listing.price}
+              price={listing.price ? listing.price : "מחיר בפרטי"}
               postDate={listing.entry_date}
               startDate={listing.startDate}
               endDate={listing.endDate}

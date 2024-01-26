@@ -14,7 +14,7 @@ export type ListingCardData = {
   imageUrls: FacebookImageUrl[]
   roomCount: number
   area?: number
-  price?: number
+  price?: number | string
   floorNumber?: number
   street?: string
   neighborhood?: string

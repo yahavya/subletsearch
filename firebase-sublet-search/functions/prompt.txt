@@ -19,6 +19,6 @@ Only provide a RFC8259 compliant JSON response following this format without dev
   "neighborhood": "what neighborhood is the apartment in, must be translated to hebrew, for example: 'יפו, פלורנטין, הצפון הישן, דיזנגוף', maximum length of 3 words"
 }]
 
-Do not try to translate the text to English. If text is in English, translate to Hebrew. I don't care about the content. Just give me the final object as output and nothing else.
+Do not try to translate the text to English. If the listing is in English, translate it to Hebrew. I don't care about the content. Just give me the final object as output and nothing else.
 
 DON'T MAKE STUFF UP. IF YOU CAN'T FIND A CERTAIN FIELD, RETURN IT AS null.
