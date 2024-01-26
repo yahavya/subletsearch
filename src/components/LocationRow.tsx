@@ -20,7 +20,7 @@ const LocationRow: FC<Props> = ({ neighborhood, street }) => {
     : neighborhood
   return (
     <StyledContainer>
-      <IconField icon={faLocationDot} typographyVariant="h4" iconSize="lg">
+      <IconField icon={faLocationDot} typographyVariant="h5" iconSize="lg">
         {locationString}
       </IconField>
     </StyledContainer>

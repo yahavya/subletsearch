@@ -10,12 +10,11 @@ interface Listing {
   entry_date: string
   startDate: string;
   endDate: string;
-  neighborhood?: string; // Adjust if necessary
-  street?: string; // Adjust if necessary
+  neighborhood?: string; 
+  street?: string; 
   roomCount: number;
-  floorNumber?: number; // Adjust if necessary
-  area?: number | null; // Adjust if necessary
-  // Add other properties as needed
+  floorNumber?: number; 
+  area?: number | null; 
 }
 
 interface ApiResponse {
@@ -37,25 +36,26 @@ const FeedPage = () => {
   }, []);
 
   return (
-    <div style={{ display: "flex", gap: 16, marginTop: 10 }}>
+    <div style={{ display: "flex", flexWrap: "wrap", gap: 16, marginTop: 10 }}>
       {data ? (
         data.listings.map((listing, index) => (
-          <ListingCard
-            postUrl = {listing.postUrl}
-            id = {listing.id}
-            key={index}
-            imageUrls={listing.imageUrl}
-            price={listing.price}
-            postDate={listing.entry_date}
-            startDate={listing.startDate}
-            endDate={listing.endDate}
-            neighborhood={listing.neighborhood || ""} // Default to empty string if undefined
-            street={listing.street || ""} // Default to empty string if undefined
-            roomCount={listing.roomCount}
-            floorNumber={listing.floorNumber || 0} // Default to 0 if undefined
-            area={listing.area || 0} // Default to 0 if undefined
-            city = "Tel Aviv"
-          />
+          <div key={index} style={{ width: "calc(25% - 16px)" }}>
+            <ListingCard
+              postUrl={listing.postUrl}
+              id={listing.id}
+              imageUrls={listing.imageUrl}
+              price={listing.price}
+              postDate={listing.entry_date}
+              startDate={listing.startDate}
+              endDate={listing.endDate}
+              neighborhood={listing.neighborhood || ""}
+              street={listing.street || ""}
+              roomCount={listing.roomCount}
+              floorNumber={listing.floorNumber || 0}
+              area={listing.area || 0}
+              city="Tel Aviv"
+            />
+          </div>
         ))
       ) : (
         'Loading...'
@@ -65,13 +65,3 @@ const FeedPage = () => {
 };
 
 export default FeedPage;
-
-
-/*
-<div style={{ display: "flex", gap: 16, marginTop: 10 }}>
-      <ListingCard {...mockData[1]} />
-      <ListingCard {...mockData[0]} />
-      <ListingCard {...mockData[2]} />
-      <ListingCard {...mockData[3]} /> 
-      </div>
-      */

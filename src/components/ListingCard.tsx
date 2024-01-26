@@ -1,18 +1,32 @@
-import { FC } from "react"
-import { ListingCardData } from "../types"
-import { styled, Card, Typography } from "@mui/material"
-import "react-responsive-carousel/lib/styles/carousel.min.css"
-import ImageCarousel from "./ImageCarousel"
-import GeneralInfoRow from "./GeneralInfoRow"
-import LocationRow from "./LocationRow"
-
+import { FC } from "react";
+import { ListingCardData } from "../types";
+import { styled, Card, Typography, Box } from "@mui/material";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import ImageCarousel from "./ImageCarousel";
+import GeneralInfoRow from "./GeneralInfoRow";
+import LocationRow from "./LocationRow";
 
 const StyledCard = styled(Card)({
-  width: 500,
-  display: "block"
-})
+  width: "80%", // Adjust the width to your preference
+  margin: "16px auto", // Center the card and add margin
+  cursor: "pointer",
+  transition: "transform 0.2s ease-in-out",
+
+  "&:hover": {
+    transform: "scale(1.05)",
+  },
+});
+
+const PriceTypography = styled(Typography)({
+  fontSize: "1.5rem",
+  fontWeight: "bold",
+  marginBottom: "8px",
+});
+
+const NeighborhoodTypography = styled(Typography)({
 
 
+});
 
 const ListingCard: FC<ListingCardData> = ({
   postUrl,
@@ -31,23 +45,24 @@ const ListingCard: FC<ListingCardData> = ({
     // Handle click logic, e.g., navigate to the link
     window.open(postUrl, '_blank', 'noopener noreferrer');
   };
+
   return (
     <StyledCard onClick={handleClick}>
-      <Typography variant="h3">{`₪${price}`}</Typography>
+      <PriceTypography>{`₪${price}`}</PriceTypography>
       <ImageCarousel imageUrls={imageUrls} />
-      <LocationRow neighborhood={neighborhood} street={street} />
-      <GeneralInfoRow
-        postDate={postDate}
-        startDate={startDate}
-        endDate={endDate}
-        roomCount={roomCount}
-        floorNumber={floorNumber}
-        area={area}
-      />
+      <Box p={2}>
+        <LocationRow neighborhood={neighborhood} street={street} />
+        <GeneralInfoRow
+          postDate={postDate}
+          startDate={startDate}
+          endDate={endDate}
+          roomCount={roomCount}
+          floorNumber={floorNumber}
+          area={area}
+        />
+      </Box>
     </StyledCard>
-  )
-}
+  );
+};
 
-export default ListingCard
-
-
+export default ListingCard;

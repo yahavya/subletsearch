@@ -51,6 +51,23 @@ app.get("/api/listings", async (req, res) => {
 
 });
 
+//Delete all listings
+app.post("/api/delete", async (req, res) => { 
+  try {
+    const collectionRef = admin.firestore().collection('listings');
+    await collectionRef.get().then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            doc.ref.delete();
+        });
+    });
+    res.json({ success: true, message: 'All listings deleted' });
+  }
+  catch (error) {
+    console.error('Error deleting entries from Firestore:', error);
+    res.status(500).json({ success: false, error: 'Internal Server Error' });
+  }
+}
+  )
 //Post
 app.post("/api/create", (req, res) => {
     
