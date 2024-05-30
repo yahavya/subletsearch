@@ -16,5 +16,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "/Users/ron/new-sublet-search/dirot/backend/src/database/app.js"]
+  "include": ["src", "/Users/ron/new-sublet-search/dirot/backend/src/database/app.js", "src/App.tsx"]
 }
