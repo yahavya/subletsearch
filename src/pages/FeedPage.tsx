@@ -29,7 +29,7 @@ const FeedPage = () => {
   const [data, setData] = useState<ApiResponse | null>(null);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5001/sublet-search-8ae44/us-central1/app/api/listings?page=1')
+    fetch('https://us-central1-sublet-search-8ae44.cloudfunctions.net/app/api/listings/?page=1')
       .then(response => response.json())
       .then((json: ApiResponse) => setData(json))
       .catch(error => console.error(error));
