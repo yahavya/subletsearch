@@ -1,5 +1,5 @@
 const puppeteer = require('puppeteer');
-const parser = require('./parser.js');
+const parser = require('./parser.js').default;
 const fs = require('fs/promises');
 const filePath = "/Users/ron/new-sublet-search/dirot/firebase-sublet-search/functions/prompt.txt";
 

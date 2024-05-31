@@ -1,7 +1,8 @@
 // ###### PARSER ######
 
 const dotenv = require('dotenv');
-const OpenAI = require('openai')
+const OpenAI = require('openai');
+
 dotenv.config();
 
 const openai = new OpenAI({
