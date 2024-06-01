@@ -17,7 +17,7 @@ const db = admin.firestore();
 
 app.use(cors( {origin: true}));
 
-app.use(express.json());
+//app.use(express.json());
 
 //Routes
 //Get
@@ -65,7 +65,7 @@ app.post("/api/delete", async (req, res) => {
 app.post("/api/create", (req, res) => {
     
     (async () => {
-        const list = await scraper('https://m.facebook.com/groups/327655587294381');
+        const list = await scraper('https://m.facebook.com/groups/327655587294381/');
         console.log("list coming from create function " + list);
         let documentRef = db.collection("listings")
 
@@ -73,12 +73,17 @@ app.post("/api/create", (req, res) => {
             let postID;
             for (const post of list) {
                 postID = getURLNumber(post.url);
+                console.log(postID);
                 
                 // check if post already exists
                 documentRef = db.collection('listings').doc('/' + postID + '/');
+
                 const doc = await documentRef.get()
+                console.log("this is doc: " + doc.exists);
 
                 if (!doc.exists) {
+
+                    console.log("entered the doc exist if");
 
                     await db.collection('listings').doc('/' + postID + '/')
                     .create({
@@ -96,11 +101,12 @@ app.post("/api/create", (req, res) => {
                         post_date: new Date().toLocaleDateString(),
                         neighborhood: post.neighborhood || null,
                         street: post.street || null,
-
                     })
+                console.log("post created");
+
             }
     }
-        return res.status(200).send("Listings created successfully! Hooray!");
+        return res.status(200).send("Listings created successfully! Hooray!" + list.length);
 
         }
         catch (error) {
@@ -109,8 +115,6 @@ app.post("/api/create", (req, res) => {
         }
     })();
 });
-
-exports.app = functions.https.onRequest(app);
 
  function getURLNumber(url) {
   // Split the URL by slashes
@@ -122,3 +126,10 @@ exports.app = functions.https.onRequest(app);
   // Parse the number and return
   return parseInt(secondToLastSegment, 10);
 }
+
+app.listen(3000, () => {
+ console.log(`Server listening on port 3000`);
+})
+
+// exports.app = functions.https.onRequest(app);
+
