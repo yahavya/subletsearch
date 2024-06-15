@@ -17,7 +17,7 @@ const db = admin.firestore();
 
 app.use(cors( {origin: true}));
 
-//app.use(express.json());
+app.use(express.json());
 
 //Routes
 //Get
@@ -127,9 +127,9 @@ app.post("/api/create", (req, res) => {
   return parseInt(secondToLastSegment, 10);
 }
 
-app.listen(3000, () => {
+/*app.listen(3000, () => {
  console.log(`Server listening on port 3000`);
-})
+}) */
 
-// exports.app = functions.https.onRequest(app);
+exports.app = functions.https.onRequest(app);
 
