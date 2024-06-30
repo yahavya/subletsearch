@@ -29,9 +29,11 @@ interface ApiResponse {
 
 const FeedPage = () => {
   const [data, setData] = useState<ApiResponse | null>(null);
+  
+
 
   useEffect(() => {
-    fetch('https://us-central1-sublet-search-8ae44.cloudfunctions.net/app/api/listings/?page=1')
+    fetch('https://us-central1-sublet-search-8ae44.cloudfunctions.net/app/api/listings')
       .then(response => response.json())
       .then((json: ApiResponse) => setData(json))
       .catch(error => console.error(error));
@@ -40,25 +42,35 @@ const FeedPage = () => {
   return (
     <div style={{ display: "flex", flexWrap: "wrap", gap: 16, marginTop: 10 }}>
       {data ? (
-        data.listings.map((listing, index) => (
-          <div key={index} style={{ width: "calc(25% - 16px)" }}>
-            <ListingCard
-              postUrl={listing.postUrl}
-              id={listing.id}
-              imageUrls={listing.imageUrl}
-              price={listing.price ? listing.price : "מחיר בפרטי"}
-              postDate={listing.entry_date}
-              startDate={listing.startDate}
-              endDate={listing.endDate}
-              neighborhood={listing.neighborhood || ""}
-              street={listing.street || ""}
-              roomCount={listing.roomCount}
-              floorNumber={listing.floorNumber || 0}
-              area={listing.area || 0}
-              city="Tel Aviv"
-            />
-          </div>
-        ))
+        data.listings.map((listing, index) => {
+          // Check if the listing has enough data
+        if (
+          listing.postUrl &&
+          listing.imageUrl &&
+          typeof listing.price === 'number' && listing.price > 1000          
+        ) {
+          return (
+            <div key={index} style={{ width: "calc(25% - 16px)" }}>
+              <ListingCard
+                postUrl={listing.postUrl}
+                id={listing.id}
+                imageUrls={listing.imageUrl}
+                price={listing.price ? listing.price : "מחיר בפרטי"}
+                postDate={listing.entry_date}
+                startDate={listing.startDate}
+                endDate={listing.endDate}
+                neighborhood={listing.neighborhood || ""}
+                street={listing.street || ""}
+                roomCount={listing.roomCount}
+                floorNumber={listing.floorNumber || 0}
+                area={listing.area || 0}
+                city="Tel Aviv"
+              />
+            </div>
+          );
+        }
+        return null; // Skip rendering if the listing has mostly null values
+      })
       ) : (
         <div style={{display: 'flex', justifyContent: 'center', marginTop: '20px'}}>
             <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>

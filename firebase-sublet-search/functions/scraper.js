@@ -3,12 +3,11 @@ const parser = require('./parser.js');
 const fs = require('fs/promises');
 const filePath = "prompt.txt";
 
-
 async function scraper(facebookPage) {
   const list = [];
   try {
     const browser = await puppeteer.launch({
-      //executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+      executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
       headless: false,
       args: ['--no-sandbox', '--disable-setuid-sandbox']
     });

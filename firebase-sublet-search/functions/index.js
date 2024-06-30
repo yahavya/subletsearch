@@ -28,7 +28,7 @@ app.use(express.json());
 app.get("/api/listings", async (req, res) => {
     try {
     const page = parseInt(req.query.page) || 1;
-    const listingsPerPage = 10;
+    const listingsPerPage = 20;
     // Replace 'your-collection' with the name of your Firestore collection
     const collectionRef = admin.firestore().collection('listings');
 
