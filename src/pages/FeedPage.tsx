@@ -2,6 +2,8 @@ import ListingCard from "../components/ListingCard"
 //import mockData from "../mockData"
 import React, { useEffect, useState } from "react"
 
+import {TailSpin} from "react-loader-spinner";
+
 interface Listing {
   id: number;
   postUrl: string;
@@ -58,7 +60,9 @@ const FeedPage = () => {
           </div>
         ))
       ) : (
-        'Loading...'
+        <div style={{display: 'flex', justifyContent: 'center', marginTop: '20px'}}>
+            <TailSpin color="#00BFFF" height={80} width={80} />
+        </div> 
       )}
     </div>
   );

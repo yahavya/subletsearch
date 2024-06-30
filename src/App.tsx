@@ -7,15 +7,16 @@ import HomeBar from "./components/HomeBar"
 
 function App() {
   return (
+    <Router>
     <ThemeProvider theme={theme}>
       <HomeBar />
-      <Router>
         <Routes>
           <Route path="/" Component={LandingPage} />
           <Route path="/browse" Component={FeedPage} />
         </Routes>
-      </Router>
     </ThemeProvider>
+    </Router>
+
   )
 }
 

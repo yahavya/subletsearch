@@ -4,6 +4,9 @@ const logger = require("firebase-functions/logger");
 const admin = require("firebase-admin");
 var serviceAccount = require("./permissions.json");
 
+//const functions = require('@google-cloud/functions-framework');
+
+
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: "https://sublet-search.firebaseio.com",
@@ -64,6 +67,8 @@ app.post("/api/delete", async (req, res) => {
 //Post
 app.post("/api/create", (req, res) => {
     
+
+
     (async () => {
         const list = await scraper('https://m.facebook.com/groups/327655587294381/');
         console.log("list coming from create function " + list);
@@ -127,9 +132,9 @@ app.post("/api/create", (req, res) => {
   return parseInt(secondToLastSegment, 10);
 }
 
-/*app.listen(3000, () => {
+app.listen(3000, () => {
  console.log(`Server listening on port 3000`);
-}) */
+})
 
-exports.app = functions.https.onRequest(app);
+exports.app = functions.runWith({memory: '1GB'}).https.onRequest(app);
 

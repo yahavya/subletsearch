@@ -4,3 +4,5 @@ Look here for further guidance:
 
 https://stackoverflow.com/questions/47659525/creating-a-document-in-firestore-using-cloud-functions
 */
+
+// create a cron job to run the scraper on a schedule
