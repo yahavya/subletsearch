@@ -7,7 +7,8 @@ import GeneralInfoRow from "./GeneralInfoRow";
 import LocationRow from "./LocationRow";
 
 const StyledCard = styled(Card)({
-  width: "80%", // Adjust the width to your preference
+  width: "400px", // Adjust the width to your preference
+  height: "400px",
   margin: "16px auto", // Center the card and add margin
   cursor: "pointer",
   transition: "transform 0.2s ease-in-out",

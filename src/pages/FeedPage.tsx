@@ -61,8 +61,11 @@ const FeedPage = () => {
         ))
       ) : (
         <div style={{display: 'flex', justifyContent: 'center', marginTop: '20px'}}>
-            <TailSpin color="#00BFFF" height={80} width={80} />
+            <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
+              <TailSpin color="#00BFFF" height={80} width={80} />
+            </div>
         </div> 
+
       )}
     </div>
   );
