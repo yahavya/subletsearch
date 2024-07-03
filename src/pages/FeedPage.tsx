@@ -61,7 +61,7 @@ const FeedPage = () => {
                 listing.imageUrl &&
                 typeof listing.price === 'number' && listing.price > 1000) {
                 return (
-                  <div key={index} style={{ width: "calc(25% - 16px)" }}>
+                  <div key={index} style={{ width: "calc(33% - 16px)" }}>
                     <ListingCard
                       postUrl={listing.postUrl}
                       id={listing.id}
